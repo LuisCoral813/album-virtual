@@ -18,7 +18,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-[100svh] relative flex items-center justify-center overflow-hidden">
+    <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
       {/* Hero background image */}
       <div className="absolute inset-0">
         <img

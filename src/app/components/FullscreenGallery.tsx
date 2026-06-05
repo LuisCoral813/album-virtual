@@ -113,7 +113,7 @@ export default function FullscreenGallery({ memories, initialIndex, onClose }: F
                 <img
                   src={currentImage}
                   alt={currentMemory.title}
-                  className="w-full max-h-[70vh] object-contain"
+                  className="w-full max-h-[50vh] object-contain"
                 />
               </div>
 
