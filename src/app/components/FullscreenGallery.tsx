@@ -106,14 +106,14 @@ export default function FullscreenGallery({ memories, initialIndex, onClose }: F
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.4 }}
-              className="max-w-5xl w-full"
+              className="max-w-3xl w-full mx-auto"
             >
               {/* Image */}
-              <div className="relative rounded-2xl overflow-hidden mb-8 shadow-2xl">
+              <div className="relative rounded-2xl overflow-hidden mb-6 shadow-2xl flex justify-center">
                 <img
                   src={currentImage}
                   alt={currentMemory.title}
-                  className="w-full max-h-[50vh] object-contain"
+                  className="max-w-full max-h-[50vh] object-contain rounded-2xl"
                 />
               </div>
 
