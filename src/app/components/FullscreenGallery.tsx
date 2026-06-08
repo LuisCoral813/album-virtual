@@ -8,6 +8,7 @@ interface Memory {
   title: string;
   description: string;
   image: string[];
+  video?: string[];
   location?: string;
 }
 
@@ -45,7 +46,18 @@ export default function FullscreenGallery({ memories, initialIndex, onClose }: F
 
   const currentMemory = memories[currentIndex];
 
-  const currentImage = currentMemory.image[currentImageIndex];
+  const mediaItems = [
+  ...currentMemory.image.map((src) => ({
+    type: "image",
+    src
+  })),
+  ...(currentMemory.video || []).map((src) => ({
+    type: "video",
+    src
+  }))
+];
+
+const currentMedia = mediaItems[currentImageIndex];
 
   return (
     <AnimatePresence>
@@ -108,22 +120,30 @@ export default function FullscreenGallery({ memories, initialIndex, onClose }: F
               transition={{ duration: 0.4 }}
               className="max-w-3xl w-full mx-auto"
             >
-              {/* Image */}
               <div className="relative rounded-2xl overflow-hidden mb-6 shadow-2xl flex justify-center">
-                <img
-                  src={currentImage}
-                  alt={currentMemory.title}
-                  className="max-w-full max-h-[50vh] object-contain rounded-2xl"
-                />
+                {currentMedia.type === "image" ? (
+                  <img
+                    src={currentMedia.src}
+                    alt={currentMemory.title}
+                    className="max-w-full max-h-[50vh] object-contain rounded-2xl"
+                  />
+                ) : (
+                  <video
+                    src={currentMedia.src}
+                    controls
+                    autoPlay
+                    className="max-w-full max-h-[50vh] rounded-2xl"
+                  />
+                )}
               </div>
 
-              {currentMemory.image.length > 1 && (
+              {mediaItems.length > 1 && (
                 <div className="flex justify-center gap-3 mb-6">
                   <button
                     onClick={() =>
                       setCurrentImageIndex((prev) =>
                         prev === 0
-                          ? currentMemory.image.length - 1
+                          ? mediaItems.length - 1
                           : prev - 1
                       )
                     }
@@ -133,13 +153,13 @@ export default function FullscreenGallery({ memories, initialIndex, onClose }: F
                   </button>
 
                   <span className="text-white/80 flex items-center">
-                    {currentImageIndex + 1} / {currentMemory.image.length}
+                    {currentImageIndex + 1} / {mediaItems.length}
                   </span>
 
                   <button
                     onClick={() =>
                       setCurrentImageIndex((prev) =>
-                        prev === currentMemory.image.length - 1
+                        prev === mediaItems.length - 1
                           ? 0
                           : prev + 1
                       )

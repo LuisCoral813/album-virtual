@@ -10,12 +10,41 @@ interface Memory {
   title: string;
   description: string;
   image: string[];
+  video?: string[];
   location?: string;
 }
 
 const memories: Memory[] = [
   {
+  id: 0,
+  date: "22 de Marzo de 2026",
+  title: "La pequeña y fácil ruta en moto",
+  description:
+    "La primera ruta en moto que hicimos y que parecía no acabar",
+  image: [
+    "/images/memories/2026-03-22/1.jpg",
+    "/images/memories/2026-03-22/2.jpg",
+    "/images/memories/2026-03-22/3.jpg"
+  ],
+  location: "Refugio Potosí, Caldas"
+  },
+  {
   id: 1,
+  date: "11 de Abril de 2026",
+  title: "Primeras citas",
+  description:
+    "Reocorriendo Pereira. Una de nuestras primeras citas",
+  image: [
+    "/images/soon_1.jpg",
+  ],
+  video: [
+    "/videos/2026-04-11/1.mp4",
+    "/videos/2026-04-11/2.mp4"
+  ],
+  location: "Pereira, Risaralda"
+  },
+  {
+  id: 2,
   date: "3 de Mayo de 2026",
   title: "Un fin de semana contigo",
   description:
@@ -28,7 +57,7 @@ const memories: Memory[] = [
   location: "Pereira y Santa Rosa de Cabal, Risaralda"
   },
   {
-    id: 2,
+    id: 3,
     date: "4 de Mayo 2026",
     title: "No pain no gain",
     description: "Un día acompañandote en tu día de gym, siempre apoyándote en cada repetición.",
@@ -38,7 +67,7 @@ const memories: Memory[] = [
     location: "Pereira, Risaralda"
   },
   {
-    id: 3,
+    id: 4,
     date: "18 de Mayo de 2026",
     title: "Un día en Ukumarí",
     description:
@@ -56,7 +85,7 @@ const memories: Memory[] = [
     location: "Bioparque Ukumarí, Pereira"
   },
   {
-    id: 4,
+    id: 5,
     date: "23 de Mayo de 2026",
     title: "Modo recuperación",
     description:
@@ -67,7 +96,7 @@ const memories: Memory[] = [
     location: "Pereira, Risaralda"
   },
   {
-    id: 5,
+    id: 6,
     date: "24 de Mayo de 2026",
     title: "Escapada a Belalcázar",
     description:
@@ -80,13 +109,13 @@ const memories: Memory[] = [
     location: "Belalcázar, Caldas"
   },
   {
-    id: 6,
+    id: 7,
     date: "Próximamente",
     title: "El siguiente capítulo",
     description:
       "Todavía no sabemos qué aventura irá aquí, pero seguro llegará.",
     image: [
-      "/images/placeholder.jpg"
+      "/images/soon_2.jpg"
     ],
     location: ""
   }

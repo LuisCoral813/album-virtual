@@ -7,6 +7,7 @@ interface Memory {
   title: string;
   description: string;
   image: string[];
+  video?: string[];
   location?: string;
 }
 
@@ -45,7 +46,7 @@ export default function MemoryCard({ memory, onImageClick }: MemoryCardProps) {
           {memory.title}
         </h3>
         <p className="text-sm text-[#8b6f47] mb-4">
-          {memory.image.length} {memory.image.length === 1 ? "foto" : "fotos"}
+          {(memory.image.length + (memory.video?.length || 0))} recuerdos
         </p>
         {memory.location && (
           <div className="flex items-center gap-2 text-[#8b6f47]">
